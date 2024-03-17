@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Sidebar Menu</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #FAFBFF; /* Main background color */
+}
+
+.brand {
+  color: black; /* Brand color */
+}
+
+.sidebar {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white; /* Sidebar background color */
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex; /* Add flexbox */
+  flex-direction: column; /* Stack items vertically */
+}
+
+.sidebar a {
+  padding: 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #9197B3; /* Menu item color */
+  display: block;
+  transition: 0.3s;
+  text-align: center; /* Center text horizontally */
+}
+
+.brand{ 
+    text-align: center;
+}
+
+.sidebar a:hover {
+  color: #383838;
+}
+
+.content {
+  margin-left: 300px; 
+  padding: 16px; 
+}
+
+.sublist {
+  display: none;
+  padding-left: 20px;
+}
+
+.sublist.active {
+  display: block;
+}
+
+.sidebar a.menu-item {
+  margin-bottom: 10px; /* Adjust the gap as needed */
+}
+
+.sub-item {
+  text-align: center; /* Center text horizontally */
+  margin-bottom: 5px; /* Adjust the gap as needed */
+}
+
+.sidebar a.active,
+.sublist a.active {
+  color: white; /* Active menu item text color */
+}
+
+.sidebar a.active {
+  position: relative; /* Position relative for absolute positioning of the rectangle */
+}
+
+
+.sidebar a.active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%; /* Move the rectangle to the center horizontally */
+  width: calc(100% - 60px); /*Adjust width as per your preference*/
+  height: 100%;
+  border: 2px solid #28B704; /* Border color for the rectangle */
+  border-radius: 5px; /* Border radius for rounded corners */
+  background-color: #28B704; /* Fill color within the border */
+  transform: translate(-50%, -50%); /* Move the rectangle to the center vertically and horizontally */
+  z-index: -1; /* Move the background behind the text */
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="sidebar" id="sidebar"> 
+  <div class="logo-container"> 
+    <div class="logo"></div>
+    <h2 class="brand">Brand</h2>
+  </div> 
+
+  <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)">Dashboard</a>
+  <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
+  <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+  <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+  <div class="sublist">  
+    <a href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+    <a href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+  </div> 
+  <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
+  <div class="sublist">
+    <a href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
+    <a href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+  </div> 
+</div>
+ 
+<div class="content" id="main-content">
+  <h2>Main Content</h2>
+  <p>This is the main content area.</p>
+</div>
+
+<script>
+    function toggleSublist(index, clickedItem, event) {
+      event.preventDefault(); // Prevent default behavior of anchor tag
+      var sublist = document.getElementsByClassName("sublist")[index];
+      var menuItems = document.getElementsByClassName("menu-item");
+      var subItems = sublist ? sublist.getElementsByClassName("sub-item") : [];
+    
+      // Deactivate all menu items and sublists
+      deactivateAllActive();
+    
+      // Activate the clicked menu item and sublist
+      sublist && sublist.classList.toggle("active");
+      clickedItem.classList.toggle("active");  
+    
+      // Activate the first sub-item by default
+      if (subItems.length > 0) { 
+        subItems[0].classList.add("active");
+      }
+    
+      // Fetch content from the specified page
+      var pageURL = clickedItem.getAttribute("href");
+      console.log(pageURL)
+      fetchPageContent(pageURL); 
+    }  
+    
+    function fetchPageContent(pageURL) {
+      fetch(pageURL)
+        .then(response => response.text())
+        .then(data => {
+          var doc = new DOMParser().parseFromString(data, 'text/html');
+          var newContent = doc.querySelector("#main-content").innerHTML;
+          document.getElementById("main-content").innerHTML = newContent;
+        })
+        .catch(error => console.error('Error fetching page content:', error));
+    }
+    
+    function activateSubItem(clickedItem) {
+      event.preventDefault(); // Prevent default behavior of anchor tag
+      var subItems = document.querySelectorAll(".sub-item");
+      
+      // Deactivate all other sub-items
+      for (var i = 0; i < subItems.length; i++) {
+        if (subItems[i] !== clickedItem) {
+          subItems[i].classList.remove("active");
+        }
+      }
+      var pageURL = clickedItem.getAttribute("href");
+      console.log(pageURL)
+      fetchPageContent(pageURL); 
+      clickedItem.classList.add("active"); 
+    }
+    
+    function deactivateAllActive() {
+      var activeItems = document.querySelectorAll('.active');
+      for (var i = 0; i < activeItems.length; i++) {
+        activeItems[i].classList.remove("active");
+      }
+    }
+    </script>
+    
+</body>
+</html>
