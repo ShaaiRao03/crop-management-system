@@ -4,13 +4,235 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monitoring</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/f71ea3c766.js" crossorigin="anonymous"></script>
+<style>
+#main-content{
+  font-family:Arial, sans-serif
+}
+.input-form{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.input-form input{
+  height:45px;
+  border-radius:4px;
+  font-size: large;
+}
+
+.input-form input[type="text"]{
+  width:200px;
+  padding-left: 15px;;
+  border-width:1px;
+}
+
+.input-form input[type="submit"]{
+  background-color: #28b704;
+  color: white;
+  width:150px;
+  border:none;
+}
+
+.searchicon {
+    opacity: 0.5;
+    margin-left: -40px;
+    top: 50%;
+    width:25px;
+    height:25px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.tablenvisual{
+  padding-top: 10px;
+  padding-bottom: 30px;
+  font-family:Arial, sans-serif
+}
+
+.tablenvisual button{
+  border-width: 1px;
+  border-color: #d7d7d7;
+  background: transparent;
+  width:450px;
+  height:50px;
+  font-size: large;
+}
+
+.tablenvisual button:hover, .tablenvisual button:focus{
+  background-color: #28b704;
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width:850px;
+}
+
+td, th {
+  border: 1.5px solid #606060;
+  text-align: center;
+  padding: 8px;
+}
+
+th{
+  background-color: #CDFFC8;
+}
+
+tr:nth-child(even) {
+  background-color: #efefef;
+}
+
+</style>
 </head>
 <body>
 
 <div id="main-content">
-  <h2>Main Content for Monitoring phase</h2>
-  <p>This is the content for Monitoring phase.</p> 
+  <h2>Soil Nutrients Monitoring</h2>
+  <div class="input-form">
+    <input type="text" id="searchbar" placeholder="Search" name="searchbar">
+    <button id="search-button" class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <input type="text" id="startdate" placeholder="Start" name="startbar" style="margin-left: 20px;">
+    <button id="start-button" class="searchicon"><i class="fa-solid fa-calendar"></i></button>
+    <input type="text" id="enddate" placeholder="End" name="endbar" style="margin-left: 20px;">
+    <button id="end-button" class="searchicon"><i class="fa-solid fa-calendar"></i></button>
+    <input type="submit" id="update" value="Update" name="update" style="margin-left: 20px;">
+  </div>
+  <div class="tablenvisual">
+    <button>Table</button><button>Visualization</button>
+      <div id="table-content" style="display: none;padding-top: 40px;">
+        <div style="padding-left: 800px;padding-bottom: 10px;"><i>ppm*</i></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>N</th>
+              <th>K</th>
+              <th>S</th>
+              <th>B</th>
+              <th>P</th>
+              <th>Mg</th>
+              <th>Ca</th>
+              <th>Cu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>North</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>South</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>East</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>West</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="visualization-content" style="display: none;padding-top: 40px;font-size: large;">
+        <div class="togglebut" style="padding-left: 800px;"><button style="width: 50px;height: 30px;"><i class="fa-solid fa-chart-line"></i></button><button style="width: 50px;height: 30px;"><i class="fa-solid fa-chart-pie"></i></button></div>
+        <div id="chart-container-1" style="display: none;padding-top: 30px;">
+          <div style="display: flex;padding-left: 300px;">
+            <div>North<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-line"></i></div></div>
+            <div>South<br><div class="w3-jumbo"><i class="fa-solid fa-chart-line"></i></div></div>
+          </div>
+          <div style="display: flex;padding-left: 300px;">
+            <div>East<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-line"></i></div></div>
+            <div>West<br><div class="w3-jumbo"><i class="fa-solid fa-chart-line"></i></div></div>
+          </div>
+        </div>
+        <div id="chart-container-2" style="display: none;padding-top: 30px;">
+          <div style="display: flex;padding-left: 300px;">
+            <div>North<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-pie"></i></div></div>
+            <div>South<br><div class="w3-jumbo"><i class="fa-solid fa-chart-pie"></i></div></div>
+          </div>
+          <div style="display: flex;padding-left: 300px;">
+            <div>East<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-pie"></i></div></div>
+            <div>West<br><div class="w3-jumbo"><i class="fa-solid fa-chart-pie"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tableContent = document.getElementById('table-content');
+    const visualizationContent = document.getElementById('visualization-content');
+  
+    const tableButton = document.querySelector('.tablenvisual button:nth-of-type(1)');
+    const visualizationButton = document.querySelector('.tablenvisual button:nth-of-type(2)');
+    
+    const chart1 = document.getElementById('chart-container-1');
+    const chart2 = document.getElementById('chart-container-2');
+  
+    const togglebut1 = document.querySelector('.togglebut button:nth-of-type(1)');
+    const togglebut2 = document.querySelector('.togglebut button:nth-of-type(2)');
+
+    tableButton.addEventListener('click', function() {
+      tableContent.style.display = 'block';
+      visualizationContent.style.display = 'none';
+    });
+  
+    visualizationButton.addEventListener('click', function() {
+      tableContent.style.display = 'none';
+      visualizationContent.style.display = 'block';
+      chart1.style.display = 'block';
+      chart2.style.display = 'none';
+    });
+
+    togglebut1.addEventListener('click', function() {
+      chart1.style.display = 'block';
+      chart2.style.display = 'none';
+      togglebut1.focus();
+    });
+  
+    togglebut2.addEventListener('click', function() {
+      chart1.style.display = 'none';
+      chart2.style.display = 'block';
+      togglebut2.focus();
+    });
+  });
+  </script>
 
 </body>
 </html>
