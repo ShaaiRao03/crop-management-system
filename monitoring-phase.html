@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monitoring</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <script src="https://kit.fontawesome.com/f71ea3c766.js" crossorigin="anonymous"></script>
 <style>
 #main-content{
   font-family:Arial, sans-serif
 }
 .input-form{
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .input-form input{
   height:45px;
@@ -46,7 +46,7 @@
 }
 
 .tablenvisual{
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 30px;
   font-family:Arial, sans-serif
 }
@@ -101,8 +101,8 @@ tr:nth-child(even) {
     <input type="submit" id="update" value="Update" name="update" style="margin-left: 20px;">
   </div>
   <div class="tablenvisual">
-    <button>Table</button><button>Visualization</button>
-      <div id="table-content" style="display: none;padding-top: 40px;">
+    <button onclick="displayTable()">Table</button><button onclick="displayVis()">Visualization</button>
+      <div id="table-content" style="padding-top: 40px;">
         <div style="padding-left: 800px;padding-bottom: 10px;"><i>ppm*</i></div>
         <table>
           <thead>
@@ -167,26 +167,26 @@ tr:nth-child(even) {
         </table>
       </div>
       
-      <div id="visualization-content" style="display: none;padding-top: 40px;font-size: large;">
+      <div id="visualization-content" style="display:none;padding-top: 10px;font-size: large;">
         <div class="togglebut" style="padding-left: 800px;"><button style="width: 50px;height: 30px;"><i class="fa-solid fa-chart-line"></i></button><button style="width: 50px;height: 30px;"><i class="fa-solid fa-chart-pie"></i></button></div>
-        <div id="chart-container-1" style="display: none;padding-top: 30px;">
-          <div style="display: flex;padding-left: 300px;">
-            <div>North<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-line"></i></div></div>
-            <div>South<br><div class="w3-jumbo"><i class="fa-solid fa-chart-line"></i></div></div>
+        <div id="chart-container-1" style="display: none;padding-top: 5px;">
+          <div style="display: flex;padding-left: 200px;">
+            <div>North<br><div style="padding-right: 100px;"><img src="dummy graph.png" width="260px" height="139px"></div></div>
+            <div>South<br><div><img src="dummy graph.png" width="260px" height="139px"></div></div>
           </div>
-          <div style="display: flex;padding-left: 300px;">
-            <div>East<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-line"></i></div></div>
-            <div>West<br><div class="w3-jumbo"><i class="fa-solid fa-chart-line"></i></div></div>
+          <div style="display: flex;padding-left:200px;">
+            <div>East<br><div style="padding-right: 100px;"><img src="dummy graph.png" width="260px" height="139px"></div></div>
+            <div>West<br><div><img src="dummy graph.png" width="260px" height="139px"></div></div>
           </div>
         </div>
-        <div id="chart-container-2" style="display: none;padding-top: 30px;">
-          <div style="display: flex;padding-left: 300px;">
-            <div>North<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-pie"></i></div></div>
-            <div>South<br><div class="w3-jumbo"><i class="fa-solid fa-chart-pie"></i></div></div>
+        <div id="chart-container-2" style="display: none;padding-top: 5px;">
+          <div style="display: flex;padding-left: 200px;">
+            <div>North<br><div style="padding-right: 170px;"><img src="pie-chart.png" width="140px" height="130px"></div></div>
+            <div>South<br><div><img src="pie-chart.png" width="140px" height="140px"></div></div>
           </div>
-          <div style="display: flex;padding-left: 300px;">
-            <div>East<br><div class="w3-jumbo" style="padding-right: 150px;"><i class="fa-solid fa-chart-pie"></i></div></div>
-            <div>West<br><div class="w3-jumbo"><i class="fa-solid fa-chart-pie"></i></div></div>
+          <div style="display: flex;padding-left: 200px;">
+            <div>East<br><div style="padding-right: 170px;"><img src="pie-chart.png" width="140px" height="130px"></div></div>
+            <div>West<br><div><img src="pie-chart.png" width="140px" height="140px"></div></div>
           </div>
         </div>
       </div>
@@ -195,7 +195,20 @@ tr:nth-child(even) {
 </div>
 
 <script>
+function displayTable(){
+  document.getElementById('table-content').style.display = 'block';
+  document.getElementById('visualization-content').style.display = 'none';
+}
+
+function displayVis(){
+  document.getElementById('table-content').style.display = 'none';
+  document.getElementById('visualization-content').style.display = 'block';
+}
+
   document.addEventListener('DOMContentLoaded', function() {
+    displayTable();
+    document.querySelector('.tablenvisual button:nth-of-type(1)').focus();
+
     const tableContent = document.getElementById('table-content');
     const visualizationContent = document.getElementById('visualization-content');
   
