@@ -3,14 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Equipment</title> 
+<title>Equipment Management</title>
+<script src="sidebar.js"></script>
+<link rel="stylesheet" href="style.css"> 
+
 </head>
+
 <body>
 
-<div id="main-content">
-  <h2>Main Content for Equipment</h2>
-  <p>This is the content for Equipment.</p> 
+<div class="sidebar" id="sidebar">  
+    <div class="logo-container"> 
+        <div class="logo"></div> 
+        <h2 class="brand">Brand</h2>
+    </div>   
+    
+    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)">Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+    
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+    <div class="sublist">  
+        <a id="initiationLink" href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+        <a id="monitoringLink" href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+    </div> 
+    
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
+    <div class="sublist">
+        <a id="equipmentLink" href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
+        <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+    </div> 
+        
+</div>  
+ 
+<div class="content" id="main-content"> 
+    <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+    </div>
+    <div class="equipment-button-div">
+        <button class="add-button">Add Equipment</button>
+        <div>
+            <label class="filter-label">Filter : </label>
+            <select class="filter-dropdown">
+                <option value="all">All</option>
+                <option value="type">Type</option>
+                <option value="brand">Brand</option>
+                <option value="model">Model</option>
+                <option value="status">Status</option>
+            </select>
+        </div>
+    </div>
+    <table> 
+        <thead>
+            <tr>
+                <th>No</th>  
+                <th>Name</th>
+                <th>Type</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr> 
+                <td>1</td>  
+                <td><a href="farmall-140A-pro-tractor-data.html" style="color: #28B704;">Farmall 140A Pro tractor</a></td> 
+                <td>Tractor</td>
+                <td>Case IH</td>
+                <td>Farmall 140A Pro</td> 
+                <td>Maintenance</td>
+            </tr> 
+            <tr> 
+              <td>2</td>
+              <td><a href="#" style="color: #28B704;">John Deere 6120M tractor</a></td> 
+              <td>Tractor</td>
+              <td>John Deere</td>
+              <td>6120M</td>
+              <td>Active</td>
+          </tr>
+          <tr>
+              <td>3</td> 
+              <td><a href="#" style="color: #28B704;">Kubota BX1880 compact tractor</a></td> 
+              <td>Compact Tractor</td>
+              <td>Kubota</td>
+              <td>BX1880</td>
+              <td>Inactive</td>
+          </tr>
+        </tbody>
+    </table>
 </div>
 
-</body> 
-</html>
+<script> 
+    window.onload = function() {
+      var equipmentLink = document.querySelector('a[href="equipment.html"]');
+      
+      if (equipmentLink) {
+        equipmentLink.click();
+      }
+    };
+</script>
+
+</body>
+</html> 
