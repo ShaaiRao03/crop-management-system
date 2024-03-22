@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Responsive Sidebar Menu</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css"> 
 <script src="sidebar.js"></script>
 </head>
@@ -31,6 +33,8 @@
       <a href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
     </div>  
      
+    <a href="tutorials.html" class="menu-item" onclick="toggleSublist(5, this, event)">Tutorial</a>
+    <a href="settings.html" class="menu-item" onclick="toggleSublist(6, this, event)">Settings</a>
 </div>  
 
 <div class="content" id="main-content">
