@@ -1,0 +1,295 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #FAFBFF; /* Main background color */
+  }
+  
+  .brand {
+    color: black; /* Brand color */
+  }
+  
+  .sidebar { 
+    height: 100%; 
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white; /* Sidebar background color */
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex; /* Add flexbox */
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .sidebar a {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #9197B3; /* Menu item color */
+    display: block;
+    transition: 0.3s;
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .brand{ 
+      text-align: center;
+  }
+  
+  .sidebar a:hover {
+    color: #383838;
+  }
+  
+  .content {
+    margin-left: 300px; 
+    padding: 16px; 
+  } 
+  
+  .sublist {
+    display: none;
+    padding-left: 20px;
+  }
+   
+  .sublist.active { 
+    display: block;
+  } 
+  
+  .sidebar a.menu-item {
+    margin-bottom: 10px; /* Adjust the gap as needed */
+  }
+  
+  .sub-item {
+    text-align: center; /* Center text horizontally */
+    margin-bottom: 5px; /* Adjust the gap as needed */
+  }
+  
+  .sidebar a.active,
+  .sublist a.active {
+    color: white; /* Active menu item text color */
+  }
+  
+  .sidebar a.active {
+    position: relative; /* Position relative for absolute positioning of the rectangle */
+  }
+  
+  
+  .sidebar a.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%; /* Move the rectangle to the center horizontally */
+    width: calc(100% - 60px); /*Adjust width as per your preference*/
+    height: 100%;
+    border: 2px solid #28B704; /* Border color for the rectangle */
+    border-radius: 5px; /* Border radius for rounded corners */
+    background-color: #28B704; /* Fill color within the border */
+    transform: translate(-50%, -50%); /* Move the rectangle to the center vertically and horizontally */
+    z-index: -1; /* Move the background behind the text */
+  }
+  
+/* ---------------------------------------------- */
+/* Resource allocation - Equipment */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+.search-container {
+    margin-bottom: 10px;
+}
+.search-container input[type=text] {
+    padding: 10px;
+    width: 40%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.search-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-button {
+    padding: 10px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-dropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+     
+}
+
+.equipment-button-div{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+} 
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #CDFFC8;
+    color: black;
+}
+
+.filter-label{
+    color: #797979; 
+}
+
+td a {
+    color: #28B704;
+    text-decoration: none;
+}
+td a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------- */
+/* Resource allocation - Equipment / Data */ 
+
+
+.top-section {
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.button {
+  padding: 10px 20px; 
+  color: white; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.button#backButton {
+  background-color: #7a7878; 
+  border: 1px solid #ddd; 
+}
+
+.button-container{
+  font-size: 0;
+}
+
+.button-overwiew {  
+  display: inline-block; 
+  border-width: 1px;
+  border-color: #d7d7d7;
+  background: transparent;
+  width: 50%;
+  height: 50px;
+  font-size: large;
+}
+
+.button-overwiew:hover, 
+.button-overwiew:focus {
+  background-color: #28b704;
+  color: white;
+}
+
+.button-overwiew.highlight { 
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button-overwiew:not(.highlight) {
+  background-color: white;
+  border: 1px solid #ddd; 
+}
+
+.button-overwiew:not(.highlight):hover {
+  background-color: #7bf37d;
+}
+
+#edit-delete-button{
+  margin-top: 10px;  
+}
+
+#add-record{
+  margin-top: 10px;  
+  background-color: #4CAF50; 
+}
+
+.button#editButton{
+  background-color: #4CAF50;
+}
+
+.button#deleteButton{
+  background-color: #f44336; 
+}
+
+.details-section {
+  padding-top: 10px;
+  background-color: #FAFBFF;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.details-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+.details-label { 
+  color: #7f7f7f;
+  flex: 0 0 200px;  
+  margin-right: 5px; /* Adjust as needed */
+}
+.details-info {
+  flex: 1;
+  width: 400px;
+  margin-left: 10px;
+  color: black; 
+}
+
+.image-container {
+  flex: 0 0 auto; /* Fixed size for image container */
+  margin-right: 20px; /* Adjust spacing between image and details */
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #ddd; /* Add border */
+}
+
+.overview-label{
+  color: #7f7f7f;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #CDFFC8;
+  color: black; 
+}

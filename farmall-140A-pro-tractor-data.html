@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equipment Tractor</title> 
+<script src="sidebar.js"></script>
+<link rel="stylesheet" href="style.css">
+
+</head> 
+<body>
+
+<div class="sidebar" id="sidebar">  
+    <div class="logo-container"> 
+        <div class="logo"></div>
+        <h2 class="brand">Brand</h2>
+    </div>   
+    
+    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)">Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+    
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+    <div class="sublist">  
+        <a id="initiationLink" href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+        <a id="monitoringLink" href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+    </div> 
+    
+    <a href="equipment.html" class="menu-item active" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
+    <div class="sublist active">
+        <a id="equipmentLink" href="equipment.html" class="sub-item active" onclick="activateSubItem(this)">Equipment</a>
+        <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+    </div> 
+     
+</div>  
+
+
+<div class="content" id="main-content">   
+    <div>
+        <div class="top-section"> 
+            <button class="button" id="backButton">Back</button>  
+            <p class="overview-label">Farmall 140A Pro Tractor Overview</p>
+        </div>
+        
+        <div class="button-container">
+            <button class="button-overwiew highlight " id="detailsButton">Details</button>
+            <button class="button-overwiew" id="maintenanceButton">Maintenance</button>
+        </div> 
+
+        <div id="edit-delete-button"> 
+            <button class="button" id="editButton">Edit</button>
+            <button class="button" id="deleteButton">Delete</button>
+        </div>
+        
+        <div id="detailsSection" class="details-section">
+            <div class="image-container">
+                <img src="Farmall 140A Pro tractor.jpg" alt="Placeholder Image">
+            </div>
+            <div class="details-container">
+                <div class="details-item"><span class="details-label">Name</span>:<span class="details-info">Farmall 140A Pro tractor</span></div>
+                <div class="details-item"><span class="details-label">Type</span>:<span class="details-info">Tractor</span></div>
+                <div class="details-item"><span class="details-label">Brand</span>:<span class="details-info">Case IH</span></div>
+                <div class="details-item"><span class="details-label">Model</span>:<span class="details-info">Farmall 140A Pro</span></div>
+                <div class="details-item"><span class="details-label">Status</span>:<span class="details-info">Maintenance</span></div>
+                <div class="details-item"><span class="details-label">Serial Number</span>:<span class="details-info">123456789</span></div>
+                <div class="details-item"><span class="details-label">Plate Number</span>:<span class="details-info">ABC123</span></div>
+                <div class="details-item"><span class="details-label">Last Serviced</span>:<span class="details-info">2023-05-10</span></div>
+                <div class="details-item"><span class="details-label">Leased or Purchased</span>:<span class="details-info">Purchased</span></div>
+                <div class="details-item"><span class="details-label">Lease or Purchase Date</span>:<span class="details-info">2022-12-01</span></div>
+                <div class="details-item"><span class="details-label">Dealer Number</span>:<span class="details-info">987654321</span></div>
+            </div>        
+        </div>
+
+        <div id="addRecordbutton"  style="display: none;">  
+            <button class="button" id="add-record">Add record</button>
+        </div>
+        
+        <table id="maintenanceTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Service Type</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr> 
+                    <td>1</td>
+                    <td>Repair</td>
+                    <td>2023-02-20</td> 
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maintenance</td>
+                    <td>2023-05-10</td> 
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+</div> 
+
+<script>
+    document.getElementById('detailsButton').addEventListener('click', function() {
+        document.getElementById('detailsSection').style.display = 'flex';
+        document.getElementById('maintenanceTable').style.display = 'none';
+        document.getElementById('edit-delete-button').style.display = 'block';
+        document.getElementById('addRecordbutton').style.display = 'none';
+        document.getElementById('detailsButton').classList.add('highlight');
+        document.getElementById('maintenanceButton').classList.remove('highlight');
+    }); 
+    
+    document.getElementById('maintenanceButton').addEventListener('click', function() {
+        document.getElementById('detailsSection').style.display = 'none';
+        document.getElementById('maintenanceTable').style.display = 'table';
+        document.getElementById('edit-delete-button').style.display = 'none';
+        document.getElementById('addRecordbutton').style.display = 'block'; 
+        document.getElementById('detailsButton').classList.remove('highlight'); 
+        document.getElementById('maintenanceButton').classList.add('highlight'); 
+    });
+
+    document.getElementById('backButton').addEventListener('click', function() {
+        window.location.href = 'equipment.html';  
+    });
+
+    // Show details section by default
+    document.getElementById('detailsSection').style.display = 'flex';
+
+</script>
+
+</body>
+</html>
