@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crop Management System</title> 
-<script src="general-script.js"></script> 
+<title>Crop Management System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
+<script src="general-script.js"></script>
+<script src="https://kit.fontawesome.com/f71ea3c766.js" crossorigin="anonymous"></script>
 
 </head> 
 <body>
@@ -16,21 +19,25 @@
         <h2 class="brand">Brand</h2> 
     </div>      
     
-    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)">Dashboard</a>
-    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
-    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+
+    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)"><i class="fa-solid fa-table-columns"></i>  Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)"><i class="fa-solid fa-list-check"></i>  Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)"><i class="fa-solid fa-bug-slash"></i>  Pest Management</a>
     
-    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)"><i class="fa-solid fa-solar-panel"></i>  Soil Management</a>
     <div class="sublist">  
         <a id="initiationLink" href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
         <a id="monitoringLink" href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
     </div> 
     
-    <a href="equipment.html" class="menu-item active" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
-    <div class="sublist active">
-        <a id="equipmentLink" href="equipment.html" class="sub-item active" onclick="activateSubItem(this)">Equipment</a>
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)"><i class="fa-solid fa-key"></i>  Resource Allocation</a>
+    <div class="sublist">
+        <a id="equipmentLink" href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
         <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
     </div> 
+        
+    <a href="tutorials.html" class="menu-item" onclick="toggleSublist(5, this, event)"><i class="fa-solid fa-book"></i>  Tutorial</a>
+    <a href="settings.html" class="menu-item" onclick="toggleSublist(6, this, event)"><i class="fa-solid fa-gear"></i>  Settings</a>  
 </div>   
 
 
@@ -121,7 +128,6 @@
         window.location.href = 'equipment.html';  
     });
 
-    // Show details section by default
     document.getElementById('detailsSection').style.display = 'flex'; 
 </script>
 
