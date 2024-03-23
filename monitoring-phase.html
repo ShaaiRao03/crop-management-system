@@ -4,92 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monitoring</title>
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css"> 
 <script src="https://kit.fontawesome.com/f71ea3c766.js" crossorigin="anonymous"></script>
-<style>
-#main-content{
-  font-family:Arial, sans-serif
-}
-.input-form{
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.input-form input{
-  height:45px;
-  border-radius:4px;
-  font-size: large;
-}
-
-.input-form input[type="text"]{
-  width:200px;
-  padding-left: 15px;;
-  border-width:1px;
-}
-
-.input-form input[type="submit"]{
-  background-color: #28b704;
-  color: white;
-  width:150px;
-  border:none;
-}
-
-.searchicon {
-    opacity: 0.5;
-    margin-left: -40px;
-    top: 50%;
-    width:25px;
-    height:25px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.tablenvisual{
-  padding-top: 5px;
-  padding-bottom: 30px;
-  font-family:Arial, sans-serif
-}
-
-.tablenvisual button{
-  border-width: 1px;
-  border-color: #d7d7d7;
-  background: transparent;
-  width:450px;
-  height:50px;
-  font-size: large;
-}
-
-.tablenvisual button:hover, .tablenvisual button:focus{
-  background-color: #28b704;
-  color: white;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width:850px;
-}
-
-td, th {
-  border: 1.5px solid #606060;
-  text-align: center;
-  padding: 8px;
-}
-
-th{
-  background-color: #CDFFC8;
-}
-
-tr:nth-child(even) {
-  background-color: #efefef;
-}
-
-</style>
+<script src="general-script.js"></script>
 </head>
 <body>
 
-<div id="main-content">
+  <div class="sidebar" id="sidebar">  
+    <div class="logo-container"> 
+        <div class="logo"></div> 
+        <h2 class="brand">Brand</h2>
+    </div>   
+
+    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)"><i class="fa-solid fa-table-columns"></i>  Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)"><i class="fa-solid fa-list-check"></i>  Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)"><i class="fa-solid fa-bug-slash"></i>  Pest Management</a>
+    
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)"><i class="fa-solid fa-solar-panel"></i>  Soil Management</a>
+    <div class="sublist">  
+        <a id="initiationLink" href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+        <a id="monitoringLink" href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+    </div> 
+    
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)"><i class="fa-solid fa-key"></i>  Resource Allocation</a>
+    <div class="sublist">
+        <a id="equipmentLink" href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
+        <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+    </div> 
+        
+    <a href="tutorials.html" class="menu-item" onclick="toggleSublist(5, this, event)"><i class="fa-solid fa-book"></i>  Tutorial</a>
+    <a href="settings.html" class="menu-item" onclick="toggleSublist(6, this, event)"><i class="fa-solid fa-gear"></i>  Settings</a>  
+        
+</div>  
+
+<div class="content" id="main-content">
   <h2>Soil Nutrients Monitoring</h2>
   <div class="input-form">
     <input type="text" id="searchbar" placeholder="Search" name="searchbar">
@@ -168,7 +118,7 @@ tr:nth-child(even) {
       </div>
       
       <div id="visualization-content" style="display:none;padding-top: 10px;font-size: large;">
-        <div class="togglebut" style="padding-left: 800px;"><button style="width: 50px;height: 30px;"><i class="fa-solid fa-chart-line"></i></button><button style="width: 50px;height: 30px;"><i class="fa-solid fa-chart-pie"></i></button></div>
+        <div class="togglebut" style="padding-left: 800px;"><button style="width: 50px;height: 30px;" onclick="displayGraph()"><i class="fa-solid fa-chart-line"></i></button><button style="width: 50px;height: 30px;" onclick="displayChart()"><i class="fa-solid fa-chart-pie"></i></button></div>
         <div id="chart-container-1" style="display: none;padding-top: 5px;">
           <div style="display: flex;padding-left: 200px;">
             <div>North<br><div style="padding-right: 100px;"><img src="dummy graph.png" width="260px" height="139px"></div></div>
@@ -195,57 +145,14 @@ tr:nth-child(even) {
 </div>
 
 <script>
-function displayTable(){
-  document.getElementById('table-content').style.display = 'block';
-  document.getElementById('visualization-content').style.display = 'none';
-}
-
-function displayVis(){
-  document.getElementById('table-content').style.display = 'none';
-  document.getElementById('visualization-content').style.display = 'block';
-}
-
-  document.addEventListener('DOMContentLoaded', function() {
-    displayTable();
-    document.querySelector('.tablenvisual button:nth-of-type(1)').focus();
-
-    const tableContent = document.getElementById('table-content');
-    const visualizationContent = document.getElementById('visualization-content');
-  
-    const tableButton = document.querySelector('.tablenvisual button:nth-of-type(1)');
-    const visualizationButton = document.querySelector('.tablenvisual button:nth-of-type(2)');
+  window.onload = function() {
+    var monitoringLink = document.querySelector('a[href="monitoring-phase.html"]');
     
-    const chart1 = document.getElementById('chart-container-1');
-    const chart2 = document.getElementById('chart-container-2');
-  
-    const togglebut1 = document.querySelector('.togglebut button:nth-of-type(1)');
-    const togglebut2 = document.querySelector('.togglebut button:nth-of-type(2)');
-
-    tableButton.addEventListener('click', function() {
-      tableContent.style.display = 'block';
-      visualizationContent.style.display = 'none';
-    });
-  
-    visualizationButton.addEventListener('click', function() {
-      tableContent.style.display = 'none';
-      visualizationContent.style.display = 'block';
-      chart1.style.display = 'block';
-      chart2.style.display = 'none';
-    });
-
-    togglebut1.addEventListener('click', function() {
-      chart1.style.display = 'block';
-      chart2.style.display = 'none';
-      togglebut1.focus();
-    });
-  
-    togglebut2.addEventListener('click', function() {
-      chart1.style.display = 'none';
-      chart2.style.display = 'block';
-      togglebut2.focus();
-    });
-  });
-  </script>
+    if (monitoringLink) {
+      monitoringLink.click();
+    }
+  };
+</script>
 
 </body>
 </html>
