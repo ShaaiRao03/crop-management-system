@@ -1,11 +1,6 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #FAFBFF; /* Main background color */
-  }
-  
   .brand {
     color: black; /* Brand color */
+    text-align: center;
   }
   
   .sidebar { 
@@ -32,18 +27,9 @@ body {
     text-align: left; /* Center text horizontally */
   }
   
-  .brand{ 
-      text-align: center;
-  }
-  
   .sidebar a:hover {
     color: #383838;
   }
-  
-  .content {
-    margin-left: 300px; 
-    padding: 16px; 
-  } 
   
   .sublist {
     display: none;
@@ -110,7 +96,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-.add-button,.add-task,.custom-button{
+.add-button,.add-task{
     padding: 10px;
     background-color: #4CAF50; 
     color: white;
@@ -134,21 +120,6 @@ body {
     justify-content: space-between;
 } 
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    border-radius: 10px;
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-th {
-    background-color: #CDFFC8;
-    color: black;
-}
-
 .filter-label{
     color: #797979; 
 }
@@ -164,14 +135,6 @@ td a:hover {
 .top-section {
   margin-bottom: 20px;
   align-items: center;
-}
-
-.button {
-  padding: 10px 20px; 
-  color: white; 
-  border: none;
-  border-radius: 5px; 
-  cursor: pointer;
 }
 
 .button#backButton {
@@ -266,7 +229,7 @@ td a:hover {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-  border: 3px solid #ddd; /* Add border */
+  border: 3px solid #9197B3; /* Add border */
 }
 
 .overview-label{
@@ -281,7 +244,7 @@ table {
 }
 
 th, td {
-  border: 1px solid #ddd;
+  border: 1px solid #9197B3;
   padding: 8px;
   text-align: left;
 }
@@ -295,11 +258,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #FAFBFF; 
   margin-left:5rem;
-}
-
-.content {
-  margin-left: 20%; 
-  padding: 16px; 
 }
 
 .main {
@@ -385,7 +343,7 @@ cursor: pointer;
 justify-content: right;
 align-items: right;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 margin-left: 38%;
 text-wrap: nowrap;
 }
@@ -397,11 +355,6 @@ font-size: 26px;
 .temperature-details {
 display: flex;
 flex-direction: row;
-}
-
-.temperature {
-  display: flex;
-  flex-direction: row;
 }
 
 .text-center {
@@ -437,7 +390,7 @@ min-width: 880px;
 
 .dashboard-table td, 
 .dashboard-table th {
-border: 1.5px solid #606060;
+border: 1.5px solid #9197B3;
 text-align: center;
 padding: 8px;
 }
@@ -453,12 +406,6 @@ background-color: #efefef;
 .dashboard-table table a {
 color: #28b704;
 text-decoration: underline;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #FAFBFF; 
-  margin-left:5rem;
 }
 
 .content {
@@ -757,4 +704,65 @@ h1 {
 .tablenvisual button:hover, .tablenvisual button:focus{
   background-color: #28b704;
   color: white;
+}
+/* Pop up */
+/* Popup container */ 
+.popup { 
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  display: none;
+}
+/* Styling for labels and buttons */
+.custom-label { 
+  margin-bottom: 10px;
+  display: block;
+} 
+.custom-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.custom-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.custom-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {  
+  background-color: red;
 }
