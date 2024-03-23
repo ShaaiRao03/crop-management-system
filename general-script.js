@@ -114,12 +114,6 @@ function submitInput() {
   closePopup(); // Close the popup after submitting
 }
 
-function deleteTask() {
-  // Add functionality to delete the task
-  console.log("Task deleted");
-  closePopup(); // Close the popup after deleting
-}
-
 function displayTable(){
   document.getElementById('table-content').style.display = 'block';
   document.getElementById('visualization-content').style.display = 'none';
