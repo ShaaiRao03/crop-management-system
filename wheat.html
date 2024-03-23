@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Initiation</title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/f71ea3c766.js" crossorigin="anonymous"></script>
+<script src="general-script.js"></script>
+</head>
+
+<body>
+<div class="sidebar" id="sidebar">  
+    <div class="logo-container"> 
+        <div class="logo"></div>
+        <h2 class="brand">Brand</h2>
+    </div>   
+
+    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)"><i class="fa-solid fa-table-columns"></i>  Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)"><i class="fa-solid fa-list-check"></i>  Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)"><i class="fa-solid fa-bug-slash"></i>  Pest Management</a>
+    
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)"><i class="fa-solid fa-solar-panel"></i>  Soil Management</a>
+    <div class="sublist">  
+        <a id="initiationLink" href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+        <a id="monitoringLink" href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+    </div> 
+    
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)"><i class="fa-solid fa-key"></i>  Resource Allocation</a>
+    <div class="sublist">
+        <a id="equipmentLink" href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
+        <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+    </div> 
+        
+    <a href="tutorials.html" class="menu-item" onclick="toggleSublist(5, this, event)"><i class="fa-solid fa-book"></i>  Tutorial</a>
+    <a href="settings.html" class="menu-item" onclick="toggleSublist(6, this, event)"><i class="fa-solid fa-gear"></i>  Settings</a>  
+       
+</div>  
+
+<div class="content" id="main-content">
+
+    <div class="wheat" id="wheat">
+        <style>
+        </style>
+
+        <h1>Wheat</h1>
+        <div class="video-container">
+            <iframe width="100%" height="250px" style="border-radius: 10px" src="https://www.youtube.com/embed/fkO3EhG7v3c?si=KHpOfiss_Vvgj6JA" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="conditions">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ph Value</th>
+                        <th>neutral (around 7)</th>
+                    </tr>
+                    <tr>
+                        <th>Water requirements</th>
+                        <th>30 - 38 cm</th>
+                    </tr>
+                    <tr>
+                        <th>Sunlight</th>
+                        <th>Full sunlight</th>
+                    </tr>
+                    <tr>
+                        <th>Fertilizer</th>
+                        <th>Nitrogen, phosphorus and potassium</th>
+                    </tr>
+                    <tr>
+                        <th>Soil type</th>
+                        <th>Fertile loamy soil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="season-wheat">
+            <div class="spring-wheat">
+                <label class="spring">Spring wheat</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Minimum temperature (Celcius)</th>
+                            <th>21</th>
+                        </tr>
+                        <tr>
+                            <th>Maximum temperature (Celcius)</th>
+                            <th>24</th>
+                        </tr>
+                        <tr>
+                            <th>Planting time</th>
+                            <th>Late summer/ early fall</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="winter-wheat">
+                <label class="winter">Winter wheat</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Minimum temperature (Celcius)</th>
+                            <th>4</th>
+                        </tr>
+                        <tr>
+                            <th>Maximum temperature (Celcius)</th>
+                            <th>32</th>
+                        </tr>
+                        <tr>
+                            <th>Planting time</th>
+                            <th>First spring months</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
