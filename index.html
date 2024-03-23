@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Sidebar Menu</title>
+<title>Crop Management System</title>
 <link rel="stylesheet" href="style.css"> 
-<script src="sidebar.js"></script>
-</head>
-<body>    
+<script src="general-script.js"></script>
 
-<div class="sidebar" id="sidebar">  
-    <div class="logo-container"> 
-      <div class="logo"></div> 
-      <h2 class="brand">Brand</h2>
+</head>
+<body>       
+ 
+<div class="sidebar" id="sidebar">   
+    <div class="logo-container">   
+      <div class="logo"></div>   
+      <h2 class="brand">Brand</h2>      
     </div>   
     
     <a href="dashboard.html" class="menu-item " onclick="toggleSublist(3, this, event)">Dashboard</a>
@@ -20,7 +21,7 @@
     <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
     
     <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
-    <div class="sublist">  
+    <div class="sublist">   
       <a href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
       <a href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
     </div> 
@@ -30,14 +31,14 @@
       <a href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
       <a href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
     </div>  
-     
+      
 </div>  
 
 <div class="content" id="main-content">
 
-</div>  
-
-<script>
+</div>    
+  
+<script>  
   window.onload = function() {
       var dashboardLink = document.querySelector('a[href="dashboard.html"]');
       

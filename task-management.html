@@ -3,14 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Task</title>
+<title>Crop Management System</title>
+<link rel="stylesheet" href="style.css"> 
+<script src="general-script.js"></script>
+
+
 </head>
 <body>
 
-<div id="main-content">
-  <h2>Main Content for Task Management</h2>
-  <p>This is the content for Task Management.</p> 
+<div class="sidebar" id="sidebar">   
+    <div class="logo-container"> 
+      <div class="logo"></div>  
+      <h2 class="brand">Brand</h2>
+    </div>   
+    
+    <a href="dashboard.html" class="menu-item " onclick="toggleSublist(3, this, event)">Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+    
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+    <div class="sublist">  
+      <a href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+      <a href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+    </div> 
+    
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
+    <div class="sublist">
+      <a href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
+      <a href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+    </div>  
+     
+</div>  
+ 
+
+<div class="content" id="main-content">
+
+    <button onclick="openPopup()" class="add-task">Add Task</button>   
+
+    <table>
+    <thead>
+        <tr>
+        <th>Task</th>
+        <th>Association</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Assignee</th>
+        </tr> 
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#">Planting Corn</a></td>
+        <td>Field A</td>
+        <td>2024-04-05</td>
+        <td><span class="tag-progress">In Progress</span></td>
+        <td>John Smith</td>
+    </tr>
+    <tr>
+        <td><a href="#">Harvesting Wheat</a></td>
+        <td>Field B</td>
+        <td>2024-04-10</td>
+        <td><span class="tag-complete">Completed</span></td>
+        <td>Alice Johnson</td>
+    </tr>
+    <tr>
+        <td><a href="#">Pruning Grapevines</a></td>
+        <td>Vineyard C</td>
+        <td>2024-04-15</td>
+        <td><span class="tag-pending">Pending</span></td>
+        <td>Michael Brown</td>
+    </tr>
+    <tr>
+        <td><a href="#">Transplanting Tomato Seedlings</a></td>
+        <td>Greenhouse D</td>
+        <td>2024-04-20</td>
+        <td><span class="tag-progress">In Progress</span></td>
+        <td>Emma Davis</td>
+    </tr>
+    <tr>
+        <td><a href="#">Fertilizing Soybean Fields</a></td>
+        <td>Field E</td>
+        <td>2024-04-25</td>
+        <td><span class="tag-pending">Pending</span></td>
+        <td>Matthew Wilson</td>
+    </tr>
+    <tr>
+        <td><a href="#">Weeding Carrot Beds</a></td>
+        <td>Field F</td>
+        <td>2024-04-30</td>
+        <td><span class="tag-progress">In Progress</span></td>
+        <td>Olivia Martinez</td>
+    </tr>
+    <tr>
+        <td><a href="#">Irrigating Rice Paddies</a></td>
+        <td>Rice Field G</td>
+        <td>2024-05-05</td>
+        <td><span class="tag-complete">Completed</span></td>
+        <td>Ethan Thompson</td>
+    </tr>
+    <tr>
+        <td><a href="#">Thinning Apple Blossoms</a></td>
+        <td>Apple Orchard H</td>
+        <td>2024-05-10</td>
+        <td><span class="tag-progress">In Progress</span></td>
+        <td>Sophia Rodriguez</td>
+    </tr>
+    <tr>
+        <td><a href="#">Scouting for Pest in Potato Fields</a></td>
+        <td>Potato Field I</td>
+        <td>2024-05-15</td>
+        <td><span class="tag-pending">Pending</span></td>
+        <td>Liam Garcia</td>
+    </tr>
+    <tr>
+        <td><a href="#">Cover Cropping in Vineyards</a></td>
+        <td>Vineyard J</td>
+        <td>2024-05-20</td>
+        <td><span class="tag-complete">Completed</span></td>
+        <td>Isabella Hernandez</td>
+    </tr>
+    
+    </tbody>
+    </table>
+
+    <div id="overlay" class="overlay"></div> 
+
+    <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Add Task</h2> 
+        <label for="task" class="custom-label">Task:</label>
+        <input type="text" id="task" class="custom-input">
+        <label for="association" class="custom-label">Association:</label>
+        <input type="text" id="association" class="custom-input">
+        <label for="dueDate" class="custom-label">Due Date:</label>
+        <input type="text" id="dueDate" class="custom-input">
+        <label for="status" class="custom-label">Status:</label>
+        <input type="text" id="status" class="custom-input">
+        <label for="assignee" class="custom-label">Assignee:</label>
+        <input type="text" id="assignee" class="custom-input">
+        <button  onclick="submitInput()" class="custom-button">Update</button>
+        <button class="delete-button custom-button" onclick="deleteTask()">Delete</button>
+    </div>
+
 </div>
+
+<script> 
+  window.onload = function() {
+    var taskManagementLink = document.querySelector('a[href="task-management.html"]'); 
+    
+    if (taskManagementLink) {
+      taskManagementLink.click();
+    } 
+  };
+</script>
+
 
 </body>
 </html>
