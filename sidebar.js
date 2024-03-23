@@ -55,3 +55,28 @@ function deactivateAllActive() {
     activeItems[i].classList.remove("active");
   }
 }
+
+function displayTable(){
+  document.getElementById('table-content').style.display = 'block';
+  document.getElementById('visualization-content').style.display = 'none';
+  document.getElementById('chart-container-1').style.display = 'none';
+  document.getElementById('chart-container-2').style.display = 'none';
+}
+function displayVis(){
+  document.getElementById('table-content').style.display = 'none';
+  document.getElementById('visualization-content').style.display = 'block';
+  document.getElementById('chart-container-1').style.display = 'block';
+  document.getElementById('chart-container-2').style.display = 'none';
+}
+function displayGraph(){
+  document.getElementById('table-content').style.display = 'none';
+  document.getElementById('visualization-content').style.display = 'block';
+  document.getElementById('chart-container-1').style.display = 'block';
+  document.getElementById('chart-container-2').style.display = 'none';
+}
+function displayChart(){
+  document.getElementById('table-content').style.display = 'none';
+  document.getElementById('visualization-content').style.display = 'block';
+  document.getElementById('chart-container-1').style.display = 'none';
+  document.getElementById('chart-container-2').style.display = 'block';
+}
