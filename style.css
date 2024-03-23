@@ -768,3 +768,57 @@ h1 {
   width: 100px;
   height: 40px;
 }
+
+.input-form{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.input-form input{
+  height:45px;
+  border-radius:4px;
+  font-size: large;
+}
+
+.input-form input[type="text"]{
+  width:200px;
+  padding-left: 15px;;
+  border-width:1px;
+}
+
+.input-form input[type="submit"]{
+  background-color: #28b704;
+  color: white;
+  width:150px;
+  border:none;
+}
+
+.searchicon {
+    opacity: 0.5;
+    margin-left: -40px;
+    top: 50%;
+    width:25px;
+    height:25px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.tablenvisual{
+  padding-top: 5px;
+  padding-bottom: 30px;
+  font-family:Arial, sans-serif
+}
+
+.tablenvisual button{
+  border-width: 1px;
+  border-color: #d7d7d7;
+  background: transparent;
+  width:450px;
+  height:50px;
+  font-size: large;
+}
+
+.tablenvisual button:hover, .tablenvisual button:focus{
+  background-color: #28b704;
+  color: white;
+}
