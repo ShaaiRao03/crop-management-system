@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Equipment Tractor</title> 
-<script src="sidebar.js"></script>
+<title>Crop Management System</title> 
+<script src="general-script.js"></script> 
 <link rel="stylesheet" href="style.css">
 
 </head> 
 <body>
-
+ 
 <div class="sidebar" id="sidebar">  
-    <div class="logo-container"> 
+    <div class="logo-container">  
         <div class="logo"></div>
-        <h2 class="brand">Brand</h2>
-    </div>   
+        <h2 class="brand">Brand</h2> 
+    </div>      
     
     <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)">Dashboard</a>
     <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
@@ -31,8 +31,7 @@
         <a id="equipmentLink" href="equipment.html" class="sub-item active" onclick="activateSubItem(this)">Equipment</a>
         <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
     </div> 
-     
-</div>  
+</div>   
 
 
 <div class="content" id="main-content">   
@@ -41,7 +40,7 @@
             <button class="button" id="backButton">Back</button>  
             <p class="overview-label">Farmall 140A Pro Tractor Overview</p>
         </div>
-        
+         
         <div class="button-container">
             <button class="button-overwiew highlight " id="detailsButton">Details</button>
             <button class="button-overwiew" id="maintenanceButton">Maintenance</button>
@@ -106,7 +105,7 @@
         document.getElementById('edit-delete-button').style.display = 'block';
         document.getElementById('addRecordbutton').style.display = 'none';
         document.getElementById('detailsButton').classList.add('highlight');
-        document.getElementById('maintenanceButton').classList.remove('highlight');
+        document.getElementById('maintenanceButton').classList.remove('highlight'); 
     }); 
     
     document.getElementById('maintenanceButton').addEventListener('click', function() {
@@ -123,8 +122,7 @@
     });
 
     // Show details section by default
-    document.getElementById('detailsSection').style.display = 'flex';
-
+    document.getElementById('detailsSection').style.display = 'flex'; 
 </script>
 
 </body>

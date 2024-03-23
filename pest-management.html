@@ -3,14 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pest</title>
+<title>Crop Management System</title>
+
+<link rel="stylesheet" href="style.css"> 
+<script src="general-script.js"></script>
+
 </head>
 <body>
 
-<div id="main-content">
-  <h2>Main Content for Pest Management</h2>
-  <p>This is the content for Pest Management.</p> 
+  <div class="sidebar" id="sidebar">  
+    <div class="logo-container"> 
+      <div class="logo"></div>  
+      <h2 class="brand">Brand</h2> 
+    </div>   
+    
+    <a href="dashboard.html" class="menu-item " onclick="toggleSublist(3, this, event)">Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+    
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+    <div class="sublist">  
+      <a href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+      <a href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+    </div> 
+    
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
+    <div class="sublist">
+      <a href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
+      <a href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+    </div>  
+     
+</div>  
+
+<div class="content" id="main-content"> 
+
+  <div class="search-container">
+    <input type="text" placeholder="Search...">
+    <button type="submit">Search</button>
+  </div> 
+
+  <button class="add-button">Add Crop</button>
+
+
+  <table>
+    <thead>
+        <tr>
+            <th>No</th> 
+            <th>Crop Name</th>
+            <th>Location</th>
+            <th>Current Pest</th>
+            <th>Treatment Plan</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td><a href="#">Corn, Zea Mays Linn</a></td>
+            <td>Field A</td>
+            <td>Armyworm (Spodoptera litura Fabricius)</td>
+            <td>Biocontrol:
+              Nuclear polyhedrosis virus (NPV)</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><a href="#">Corn, Zea Mays Linn</a></td>
+            <td>Field A</td>
+            <td> Aphid  (Rhophalosiphum maidis)</td>
+            <td>Biocontrol:
+              Nuclear polyhedrosis virus (NPV)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="#">Rice, Oryza sativa</a></td>
+          <td>Field B</td>
+          <td>Sheath blight (Rhizoctonia solani)</td>
+          <td>Biocontrol: Trichoderma harzianum</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td><a href="#">Wheat, Triticum aestivum</a></td>
+          <td>Field C</td>
+          <td>Stripe rust (Puccinia striiformis)</td>
+          <td>Biocontrol: Bacillus subtilis</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td><a href="#">Soybean, Glycine max</a></td>
+          <td>Field C</td>
+          <td>Soybean aphid (Aphis glycines)</td>
+          <td>Biocontrol: Lady beetles (Coccinellidae)</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td><a href="#">Cotton, Gossypium hirsutum</a></td>
+          <td>Field B</td>
+          <td>Pink bollworm (Pectinophora gossypiella)</td>
+          <td>Biocontrol: Trichogramma chilonis</td>
+      </tr>
+      <tr> 
+          <td>7</td>
+          <td><a href="#">Barley, Hordeum vulgare</a></td>
+          <td>Field B</td>
+          <td>Powdery mildew (Blumeria graminis)</td>
+          <td>Biocontrol: Bacillus amyloliquefaciens</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td><a href="#">Potato, Solanum tuberosum</a></td>
+          <td>Field A</td>
+          <td>Potato tuber moth (Phthorimaea operculella)</td>
+          <td>Biocontrol: Beauveria bassiana</td>
+      </tr>
+
+      </tbody>
+</table>
 </div>
+
+<script>
+  window.onload = function() {
+      var pestManagementLink = document.querySelector('a[href="pest-management.html"]');
+      
+      if (pestManagementLink) {
+        pestManagementLink.click();
+      }
+  };
+</script>
+
 
 </body>
 </html>

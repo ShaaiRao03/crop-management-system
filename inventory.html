@@ -3,14 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inventory</title>
+<title>Crop Management System</title>
+<script src="general-script.js"></script>
+<link rel="stylesheet" href="style.css">
+
+
 </head>
+
 <body>
 
-<div id="main-content">
-  <h2>Main Content for Inventory</h2>
-  <p>This is the content for Inventory.</p> 
-</div>
+<div class="sidebar" id="sidebar">  
+    <div class="logo-container">  
+        <div class="logo"></div>
+        <h2 class="brand">Brand</h2>
+    </div>  
+    
+    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)">Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+    
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+    <div class="sublist">  
+        <a id="initiationLink" href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
+        <a id="monitoringLink" href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
+    </div> 
+    
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
+    <div class="sublist">
+        <a id="equipmentLink" href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
+        <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
+    </div> 
+    
+</div>  
+ 
+<div class="content" id="main-content"> 
+    <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+    </div>
 
-</body> 
+    <div class="equipment-button-div">
+        <button class="add-button">Add Inventory</button>
+        <div>
+            <label class="filter-label">Filter : </label>
+            <select class="filter-dropdown">
+                <option value="all">All</option>
+                <option value="type">Type</option>
+                <option value="brand">Brand</option>
+                <option value="model">Model</option>
+                <option value="status">Status</option>
+            </select>
+        </div>
+    </div>
+ 
+    <div class="button-container">
+        <button class="button-overview-inventory highlight" id="allButton" onclick="activateAll()">All</button>  
+        <button class="button-overview-inventory" id="cropButton" onclick="activateCrop()">Crop</button>
+        <button class="button-overview-inventory" id="fertilizerButton" onclick="activateFertilizer()">Fertilizer</button>
+        <button class="button-overview-inventory" id="pesticideButton">Pesticide</button> 
+        <button class="button-overview-inventory" id="fuelButton">Fuel and others</button> 
+    </div> 
+
+    <table id="all-table">
+        <thead>
+            <tr>
+                <th>No</th> 
+                <th>Name</th>
+                <th>Type</th>
+                <th>Remaining Quantity</th>
+                <th>Manufacturer</th>
+            </tr>
+        </thead>  
+        <tbody> 
+            <tr>
+                <td>1</td>  
+                <td><a href="#">Corn</a></td> 
+                <td>Crop</td>
+                <td>1000 kg</td>
+                <td>Royal Wheat</td> 
+            </tr> 
+            <tr>
+                <td>2</td>  
+                <td><a href="#">Micro Nutrients Powder</a></td> 
+                <td>Fertilizer</td>
+                <td>1000 gms</td>
+                <td>Green Rise</td> 
+            </tr> 
+        </tbody>
+    </table>
+
+    <table id="crop-table" style="display: none;">
+        <thead>
+            <tr>
+                <th>No</th> 
+                <th>Name</th>
+                <th>Variation</th>
+                <th>Remaining Quantity</th>
+                <th>Manufacturer</th>
+            </tr>
+        </thead>  
+        <tbody> 
+            <tr>
+                <td>1</td>  
+                <td><a href="#">Corn</a></td> 
+                <td>Zea Mays Linn</td>
+                <td>1000 kg</td>
+                <td>Royal Wheat</td> 
+            </tr> 
+        </tbody>
+    </table> 
+
+    <table id="fertilizer-table" style="display: none;">
+        <thead>
+            <tr>
+                <th>No</th> 
+                <th>Name</th>
+                <th>Form</th>
+                <th>Remaining Quantity</th>
+                <th>Manufacturer</th>
+            </tr>
+        </thead>  
+        <tbody> 
+            <tr>
+                <td>1</td>  
+                <td><a href="#">Micro Nutrients Powder</a></td> 
+                <td>Powder</td> 
+                <td>1000 gms</td>
+                <td>Green Rise</td> 
+            </tr> 
+        </tbody>
+    </table>
+
+</div> 
+
+<!-- <script>
+
+    // window.onload = function() {
+    //     var equipmentLink = document.querySelector('a[href="equipment.html"]');
+    //     var inventoryLink = document.querySelector('a[href="inventory.html"]');
+         
+    //     if (equipmentLink && inventoryLink) {
+    //         equipmentLink.click();  
+    //         inventoryLink.click(); 
+    //     }
+        
+    //     document.getElementById('all-table').style.display = 'table';
+    // }; 
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('allButton').addEventListener('click', function() { 
+            document.getElementById('all-table').style.display = 'table';
+            document.getElementById('crop-table').style.display = 'none'; 
+            document.getElementById("fertilizer-table").style.display = 'none'; 
+    
+            document.getElementById('allButton').classList.add('highlight'); 
+            document.getElementById('cropButton').classList.remove('highlight');
+            document.getElementById('fertilizerButton').classList.remove('highlight');
+        });   
+        
+        document.getElementById('cropButton').addEventListener('click', function() {
+            document.getElementById('all-table').style.display = 'none';
+            document.getElementById('crop-table').style.display = 'table'; 
+            document.getElementById("fertilizer-table").style.display = 'none'; 
+
+            document.getElementById('cropButton').classList.add('highlight');
+            document.getElementById('allButton').classList.remove('highlight');
+            document.getElementById('fertilizerButton').classList.remove('highlight');
+        });
+
+        document.getElementById('fertilizerButton').addEventListener('click', function() {
+            document.getElementById('all-table').style.display = 'none';
+            document.getElementById('crop-table').style.display = 'none'; 
+            document.getElementById("fertilizer-table").style.display = 'table'; 
+
+            document.getElementById('fertilizerButton').classList.add('highlight');
+            document.getElementById('allButton').classList.remove('highlight');
+            document.getElementById('cropButton').classList.remove('highlight');
+        }); 
+    }); 
+
+    
+</script> -->
+
+</body>
 </html>
