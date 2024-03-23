@@ -183,7 +183,7 @@ td a:hover {
   font-size: 0;
 }
 
-.button-overview-inventory {  
+.button-overview-inventory, .button-overwiew {  
   display: inline-block; 
   border-width: 1px;
   border-color: #d7d7d7;
@@ -194,22 +194,24 @@ td a:hover {
 }
 
 .button-overview-inventory:hover, 
-.button-overview-inventory:focus {
+.button-overview-inventory:focus,
+.button-overwiew:hover, 
+.button-overwiew:focus {
   background-color: #28b704;
   color: white;
 }
 
-.button-overview-inventory.highlight { 
+.button-overview-inventory.highlight,.button-overwiew.highlight { 
   background-color: #4CAF50;
   color: white;
 }
 
-.button-overview-inventory:not(.highlight) {
+.button-overview-inventory:not(.highlight),.button-overwiew:not(.highlight) {
   background-color: white;
   border: 1px solid #ddd; 
 }
 
-.button-overview-inventory:not(.highlight):hover {
+.button-overview-inventory:not(.highlight):hover,.button-overwiew:not(.highlight):hover {
   background-color: #7bf37d;
 }
 
