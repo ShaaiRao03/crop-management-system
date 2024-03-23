@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crop Management System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css"> 
+<script src="https://kit.fontawesome.com/f71ea3c766.js" crossorigin="anonymous"></script>
 <script src="general-script.js"></script>
-<link rel="stylesheet" href="style.css">
-
 
 </head>
 
@@ -18,21 +20,24 @@
         <h2 class="brand">Brand</h2>
     </div>  
     
-    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)">Dashboard</a>
-    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)">Task Management</a>
-    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)">Pest Management</a>
+    <a href="dashboard.html" class="menu-item" onclick="toggleSublist(3, this, event)"><i class="fa-solid fa-table-columns"></i>  Dashboard</a>
+    <a href="task-management.html" class="menu-item" onclick="toggleSublist(4, this, event)"><i class="fa-solid fa-list-check"></i>  Task Management</a>
+    <a href="pest-management.html" class="menu-item" onclick="toggleSublist(2, this, event)"><i class="fa-solid fa-bug-slash"></i>  Pest Management</a>
     
-    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)">Soil Management</a>
+    <a href="initiation-phase.html" class="menu-item" onclick="toggleSublist(0, this, event)"><i class="fa-solid fa-solar-panel"></i>  Soil Management</a>
     <div class="sublist">  
         <a id="initiationLink" href="Initiation-phase.html" class="sub-item" onclick="activateSubItem(this)">Initiation Phase</a>
         <a id="monitoringLink" href="monitoring-phase.html" class="sub-item" onclick="activateSubItem(this)">Monitoring Phase</a>
     </div> 
     
-    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)">Resource Allocation</a>
+    <a href="equipment.html" class="menu-item" onclick="toggleSublist(1, this, event)"><i class="fa-solid fa-key"></i>  Resource Allocation</a>
     <div class="sublist">
         <a id="equipmentLink" href="equipment.html" class="sub-item" onclick="activateSubItem(this)">Equipment</a>
         <a id="inventoryLink" href="inventory.html" class="sub-item" onclick="activateSubItem(this)">Inventory</a>
     </div> 
+        
+    <a href="tutorials.html" class="menu-item" onclick="toggleSublist(5, this, event)"><i class="fa-solid fa-book"></i>  Tutorial</a>
+    <a href="settings.html" class="menu-item" onclick="toggleSublist(6, this, event)"><i class="fa-solid fa-gear"></i>  Settings</a>  
     
 </div>  
  
@@ -135,55 +140,5 @@
     </table>
 
 </div> 
-
-<!-- <script>
-
-    // window.onload = function() {
-    //     var equipmentLink = document.querySelector('a[href="equipment.html"]');
-    //     var inventoryLink = document.querySelector('a[href="inventory.html"]');
-         
-    //     if (equipmentLink && inventoryLink) {
-    //         equipmentLink.click();  
-    //         inventoryLink.click(); 
-    //     }
-        
-    //     document.getElementById('all-table').style.display = 'table';
-    // }; 
-    
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById('allButton').addEventListener('click', function() { 
-            document.getElementById('all-table').style.display = 'table';
-            document.getElementById('crop-table').style.display = 'none'; 
-            document.getElementById("fertilizer-table").style.display = 'none'; 
-    
-            document.getElementById('allButton').classList.add('highlight'); 
-            document.getElementById('cropButton').classList.remove('highlight');
-            document.getElementById('fertilizerButton').classList.remove('highlight');
-        });   
-        
-        document.getElementById('cropButton').addEventListener('click', function() {
-            document.getElementById('all-table').style.display = 'none';
-            document.getElementById('crop-table').style.display = 'table'; 
-            document.getElementById("fertilizer-table").style.display = 'none'; 
-
-            document.getElementById('cropButton').classList.add('highlight');
-            document.getElementById('allButton').classList.remove('highlight');
-            document.getElementById('fertilizerButton').classList.remove('highlight');
-        });
-
-        document.getElementById('fertilizerButton').addEventListener('click', function() {
-            document.getElementById('all-table').style.display = 'none';
-            document.getElementById('crop-table').style.display = 'none'; 
-            document.getElementById("fertilizer-table").style.display = 'table'; 
-
-            document.getElementById('fertilizerButton').classList.add('highlight');
-            document.getElementById('allButton').classList.remove('highlight');
-            document.getElementById('cropButton').classList.remove('highlight');
-        }); 
-    }); 
-
-    
-</script> -->
-
 </body>
 </html>
