@@ -3,7 +3,7 @@
 ## Overview
 
 This repository hosts the code for a Crop Management System which tailored to support farmers in overseeing their crops, fields, tasks, pests, soil conditions, resources, inventory, and more.
-[Pitch video](https://github.com)
+- [Pitch video](https://drive.google.com/file/d/1ipbcc-LhNtd0hpSKQN9-9rEmIAouPnsz/view?usp=sharing)
 
 ### Demonstration
 
