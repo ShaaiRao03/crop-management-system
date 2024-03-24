@@ -25,7 +25,7 @@ To illustrate our solution:
 
 ## Case Study and Motivation
 
-Our selection of Case Study 5, Green and Crop Management, stems from the pivotal role of agriculture in Malaysia's economy. Given the nation's heavy reliance on imported crops like wheat and rice which was also documented by the International Trade Administration [1]. This fosters interest in farming through user-friendly solutions while offering educational insights into farm management.
+Our selection of Case Study 5, Green and Crop Management, stems from the pivotal role of agriculture in Malaysia's economy. Given the nation's heavy reliance on imported crops like wheat and rice which was also documented by the International Trade Administration (International Trade Administration, 2021). This fosters interest in farming through user-friendly solutions while offering educational insights into farm management.
 
 Accordingly, our team has emphasized three primary objectives: streamlining crop management processes, providing educational support, and ensuring inclusivity and accessibility. Our farm management system encompasses features enabling task, pest, soil, resource, and inventory management, augmented by tutorial resources in the form of videos and articles.
 
@@ -39,3 +39,8 @@ To deploy the Crop Management System:
    
 3. Launch `index.html` using a live server.
 
+## Reference 
+
+1. International Trade Administration. (2021, November 6). Malaysia - Agricultural Sector. Www.trade.gov. https://www.trade.gov/country-commercial-guides/malaysia-agricultural-sector
+
+‌
